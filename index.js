@@ -11,7 +11,7 @@ app.use('/api/v1/user',userRoute)
 app.get('/',(req,res)=>{
     res.send('Server is running well')
 })
-app.get("api/v2/text",(req,res)=>{
+app.get("/api/v2/text",(req,res)=>{
     res.send('hey i am okay')
 })
 app.all('*',(req,res)=>{
