@@ -18,3 +18,9 @@ res.send("NOT FOUND WHAT YOU ARE LOOKING FOR")
 app.listen(port,()=>{
     console.log("Server is well")
 })
+process.on("unhandledRejection", (error) => {
+    console.log(error.name, error.message);
+    app.close(() => {
+      process.exit(1);
+    });
+  });
