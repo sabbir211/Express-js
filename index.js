@@ -12,7 +12,9 @@ app.get('/',(req,res)=>{
     res.send('Server is running well')
 })
 app.get("/api/v2/text",(req,res)=>{
-    res.send('hey i am okay')
+    res.send({
+        "ok":"hey i am okay"
+    })
 })
 app.all('*',(req,res)=>{
 res.send("NOT FOUND WHAT YOU ARE LOOKING FOR")
