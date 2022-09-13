@@ -12,7 +12,7 @@ app.get('/',(req,res)=>{
     res.send('Server is running well')
 })
 app.get("/api/v2/text",(req,res)=>{
-    res.json({
+    res.send({
         "ok":"hey i am okay"
     })
 })
