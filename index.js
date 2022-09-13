@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     res.send('Server is running well')
 })
 app.get("/api/v2/text", (req, res) => {
-    fs.readFile('userData.json', "utf-8", (err, data) => {
+    fs.readFile('./userData.json', "utf-8", (err, data) => {
         if (err) {
             console.log(err)
             res.send(err)
