@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const port = process.env.PORT || 5000
 const cors = require("cors")
-const fs=require("fs")
+const fs = require("fs")
 const userRoute = require("./Routes/v1/User.route")
 
 
@@ -15,12 +15,12 @@ app.get('/', (req, res) => {
 app.get("/api/v2/text", (req, res) => {
     fs.readFile('./userData.json', "utf-8", (err, data) => {
         if (err) {
-            console.log(err)
+            console.log(err,"i am from if")
             res.send(err)
         }
         else {
             const users = JSON.parse(data)
-
+            console.log("hey i am from else")
             res.send(users)
         }
     })
