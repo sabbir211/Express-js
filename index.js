@@ -12,8 +12,16 @@ app.get('/',(req,res)=>{
     res.send('Server is running well')
 })
 app.get("/api/v2/text",(req,res)=>{
-    res.send({
-        "ok":"hey i am okay"
+    fs.readFile('userData.json', "utf-8", (err, data) => {
+        if (err) {
+
+            res.end()
+        }
+        else {
+            const users = JSON.parse(data)
+
+            res.send(users)
+        }
     })
 })
 app.all('*',(req,res)=>{

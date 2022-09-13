@@ -10,9 +10,7 @@ module.exports.getAllUser = (req, res) => {
         else {
             const users = JSON.parse(data)
 
-            res.send({
-            "x":"y"    
-            })
+            res.send(users)
         }
     })
 }
