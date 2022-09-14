@@ -82,3 +82,24 @@ module.exports.updateAUser = (req, res) => {
 module.exports.updateMultipleUser = (req, res) => {
     res.send('i am from controller updateMultipleUser')
 }
+module.exports.deleteAUser = (req, res) => {
+    fs.readFile('userData.json', "utf-8", (err, data) => {
+        if (err) {
+
+            res.end()
+        }
+        else {
+            const users = JSON.parse(data)
+            const id = parseInt(req.params.id)
+           const restUsers= users.filter(user => user.id != id)
+            fs.writeFile("userData.json", JSON.stringify(restUsers), "utf-8", (err) => {
+                if (err) {
+                    res.end()
+                }
+                else {
+                    res.send("data deleted successfully")
+                }
+            })
+        }
+    })
+}
